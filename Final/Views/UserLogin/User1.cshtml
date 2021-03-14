@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">*@
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        @*<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>*@
+        @*<title>Login V9</title>*@
+    <meta charset="UTF-8">
+    <link href="~/CSS/util1.css" rel="stylesheet" />
+    <link href="~/CSS/main1.css" rel="stylesheet" />
+    <script src="~/Js/main1.js"></script>
+    <script src="~/Js/map-custom1.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <!--<link rel="icon" type="image/png" href="images/icons/favicon.ico" />-->
+    <!--===============================================================================================-->
+    <!--<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">-->
+    <!--===============================================================================================-->
+    <!--<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">-->
+    <!--===============================================================================================-->
+    <!--<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">-->
+    <!--===============================================================================================-->
+    <!--<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">-->
+    <!--===============================================================================================-->
+    <!--<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">-->
+    <!--===============================================================================================-->
+    <!--<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">-->
+    <!--===============================================================================================-->
+    <!--<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">-->
+    <!--===============================================================================================-->
+    <!--<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">-->
+    <!--===============================================================================================-->
+    <!--<link rel="stylesheet" type="text/css" href="~/CSS/util1.css">
+    <link rel="stylesheet" type="text/css" href="~/CSS/main1.css">-->
+    <!--===============================================================================================-->
+
+    <script>
+        function city() {
+            $.ajax({
+                type: 'GET',
+                url: '/UserLogin/City2',
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                success: function (data) {
+                    var options = '';
+                    options = '<option value=Select City> Select City</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        options += '<option value="' + data[i] + '">' +
+                            data[i] + '</option>';
+
+                    }
+                    $("#S1").empty();
+                    $("#S1").append(options);
+                },
+                error: function (res) {
+                    alert('Something Went Wrong');
+                    console.log(res);
+                }
+
+            });
+        }
+
+        function signup() {
+            window.location.href = 'Signup1';
+        }
+
+    </script>
+</head>
+<body class="container-login100 container-fluid"style="background-image: url('../../Images/bg-02.jpg');">
+
+
+    <div class="">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+            <form class="login100-form validate-form" action="@Url.Action("ValidateUser", "UserLogin")" method="post">
+                <span class="login100-form-title p-b-37">
+                    Sign In
+                </span>
+                <div class="wrap-input100 validate-input m-b-20" data-validate="Enter userid">
+                    <input class="input100" type="text" required="required" name="UserId" placeholder="userid">
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter password">
+                    <input class="input100" type="password" required="required" name="Password" placeholder="password">
+                    <span class="focus-input100"></span>
+                </div>
+                <div>
+                    <select id="S1" name="usercity">
+                        <option> </option>
+                    </select>
+                </div>
+                <br />
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" type="submit">
+                        Sign In
+                    </button>
+                </div>
+
+                <div class="text-center p-t-57 p-b-20">
+                    <span class="txt1">
+                        Or login with
+                    </span>
+                </div>
+
+                <div class="flex-c p-b-112">
+                    <a href="#" class="login100-social-item">
+                        <i class="fa fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#" class="login100-social-item">
+                        <img src="images/icons/icon-google.png" alt="GOOGLE">
+                    </a>
+                </div>
+
+                <div class="text-center">
+                    <a href="@Url.Action("Signup1", "UserLogin")" class="txt2 hov1">
+                        Sign Up
+                    </a>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+    
+
+    <!--<div id="dropDownSelect1"></div>-->
+
+    <!--===============================================================================================-->
+    <!--<script src="vendor/jquery/jquery-3.2.1.min.js"></script>-->
+    <!--===============================================================================================-->
+    <!--<script src="vendor/animsition/js/animsition.min.js"></script>-->
+    <!--===============================================================================================-->
+    <!--<script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>-->
+    <!--===============================================================================================-->
+    <!--<script src="vendor/select2/select2.min.js"></script>-->
+    <!--===============================================================================================-->
+    <!--<script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>-->
+    <!--===============================================================================================-->
+    <!--<script src="vendor/countdowntime/countdowntime.js"></script>-->
+    <!--===============================================================================================-->
+    <!--<script src="js/main.js"></script>-->
+
+</body>
+<script>
+    city();
+</script>
+</html>

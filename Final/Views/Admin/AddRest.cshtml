@@ -1,0 +1,231 @@
+﻿@model Final.Models.Restaurant
+@{
+    ViewBag.Title = "AddRest";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script>
+        function loadAllName() {
+
+            $.ajax({
+                type: 'GET',
+                url: '/Admin/GetAllName',
+                dataType: 'JSON',
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    console.log(data);
+                    var toptions = $("#s2");
+                    var option = "<option value='Select Name'>Select Name </option>";
+                    for (var i = 0; i < data.length; i++) {
+                        option += "<option value='" +
+                            data[i] +
+                            "'>" + data[i] + "</option>";
+                    }
+                    toptions.append(option);
+                },
+                error: function (err) {
+                    console.log('Something Wrong !!!!');
+                }
+
+            });
+
+        }
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .zoom {
+            padding: 50px;
+            transition: transform .2s;
+            width: 1000px;
+            height: 1000px;
+            margin: 0 auto;
+        }
+
+            .zoom:hover {
+                -ms-transform: scale(1.5);  IE 9 
+                -webkit-transform: scale(1.5);  Safari 3-8 
+                transform: scale(1.5);
+            }
+
+
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Karma", sans-serif;
+            background-color: #808080
+        }
+
+        .w3-bar-block .w3-bar-item {
+            padding: 20px
+        }
+    </style>
+
+</head>
+
+<body style="background-image: url('../../Images/sx.jpg');background-size:cover">
+    <div style="margin-left: 100px; margin-top: 30px;margin-right: 100px;">
+        <hr>
+    </div>
+    <div style="margin-left: 50px;margin-top: 50px;margin-right: 50px;border: 1px solid black">
+        <table id="tblRest" class="table table-bordered">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <td> Select Restaurant Name:</td>
+                    <td>
+                        <select id="s2" onchange="restaurants()" name="Rname">
+                            <option>   </option>
+                        </select>
+                    </td>
+
+
+
+                </tr>
+                <tr>
+                    <th>Restaurant Name:</th>
+                    <th>Restaurant Type:</th>
+                    <th>Picture</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <br />
+    <br />
+    <div style="margin-left:300px;border:0.1px solid black;margin-right:525px;">
+        @using (Html.BeginForm("AddRestaurant2", "Admin", FormMethod.Post,
+                                          new { enctype = "multipart/form-data" }))
+        {
+            <div style="width:520px;height:300px;float:left;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Add Restaurant Details Here:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> Enter Restaurant Name:</td>
+                            <td>
+                                <input id="rest" type="text" name="Rname" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Select Restaurant Type:</td>
+                            <td>
+                                <select id="type" name="Category">
+                                    <option>   </option>
+                                    <option value="Veg">Veg</option>
+                                    <option value="Nonveg">Nonveg</option>
+                                    <option value="Veg&Nonveg">Veg&Nonveg</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Select Image:</td>
+                            <td>
+                                <input id="File1" name="pfile1" type="file" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input id="btnAdd" type="submit"
+                                       value="Add Restaurant" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="margin-left: 600px; margin-top: 400px;display:none" id="imagepreview" class="thumbnail, zoom">
+                    <img class="img-responsive" id="targetImg" width="100" height="100" />
+
+                </div>
+                <div style="margin-left: 600px; margin-top: -400px;display:none" id="imagepreview2" class="thumbnail, zoom">
+                    <img class="img-responsive" id="targetImg2" width="100" height="100" />
+
+                </div>
+            </div>
+
+            
+        }
+
+
+    </div>
+  
+    <script>
+        $(document).ready(function () {
+            $("#File1").change(function () {
+                var File = this.files;
+                if (File && File[0]) {
+                    ReadImage(File[0]);
+                }
+            })
+        })
+        var ReadImage = function (file) {
+            var reader = new FileReader;
+            var image = new Image;
+            reader.readAsDataURL(file);
+            reader.onload = function (_file) {
+                image.src = _file.target.result;
+                image.onload = function () {
+                    var height = this.height;
+                    var width = this.width;
+                    var type = file.type;
+                    var size = ~~(file.size / 1024) + "KB";
+                    $("#targetImg").attr('src', _file.target.result);
+                    $("#description").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                    $("#imagepreview").show();
+                }
+            }
+        }
+            </script>
+    <script>loadAllName();</script>
+    <script>
+        function restaurants() {
+            var dat = {
+               
+                Rname: $("#s2").val()
+            }
+            $.ajax({
+                type: 'POST',
+                url: '/Admin/Restaurants2',
+                //data: { id:$("#t1").val()},
+                data: JSON.stringify(dat),
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    var tdata = $("#tblRest tbody");
+                    tdata.empty();
+                    for (var i = 0; i < data.length; i++) {
+                        var trow = "<tr>" +
+                            "<td>" + data[i].Rname + "</td>" +
+                            "<td>" + data[i].Category + "</td>" +
+                            "<td>" + "<img src=" + data[i].Rimage + " width='70' height='70'/>" + "</td>"
+                        "</tr>";
+                        tdata.append(trow);
+                    }
+
+                },
+                error: function (res) {
+                    alert('Something Went Wrong');
+                    console.log(res);
+                }
+
+            });
+        }
+        
+        
+        cities3();
+    </script>
+</body>
+</html>

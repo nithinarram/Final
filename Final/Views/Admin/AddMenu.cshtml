@@ -1,0 +1,275 @@
+﻿
+@{
+    ViewBag.Title = "AddMenu";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        function loadAllRoll() {
+            $.ajax({
+                type: 'GET',
+                url: '/Admin/GetAllName',
+                dataType: 'JSON',
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+
+                    console.log(data);
+                    var toptions = $("#s1");
+                    var option = "<option value='Select Name'>Select Name </option>";
+                    for (var i = 0; i < data.length; i++) {
+                        option += "<option value='" +
+                            data[i] +
+                            "'>" + data[i] + "</option>";
+                    }
+                    toptions.append(option);
+                },
+
+                error: function (err) {
+                    console.log('Something Wrong !!!!');
+                }
+            });
+        }
+
+
+
+        function load() {
+            $.ajax({
+                type: 'GET',
+                url: '/Admin/Rest5',
+                dataType: 'JSON',
+                data: {
+                    Rname: $("#s1").val(),
+                },
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    console.log(data);
+                    $("#txtn").val(data);
+                    //$("#txtPrice").val(data.price);
+                    //$("#txtAge").val(data.Studage);
+                    //$("#txtPrice").val(data.price);
+                },
+                error: function (err) {
+                    alert('wrong');
+                    console.log('Something Wrong !!!!');
+                }
+
+            });
+        }
+    </script>
+     
+   <script>
+                                      function loadAllitems() {
+                                            var dat = {
+                                                Rname: $("#s5").val(),
+                                            }
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: '/Admin/Menu3',
+                                                data: JSON.stringify(dat),
+                                                contentType: "application/json; charset=utf-8",
+                                                dataType: 'json',
+                                                success: function (data) {
+                                                    console.log(data);
+                                                    var tdata = $("#tblMenu tbody");
+                                                    tdata.empty();
+                                                    for (var i = 0; i < data.length; i++) {
+                                                        var trow = "<tr>" +
+                                                            "<td>" + data[i].Itemsname + "</td>" +
+                                                            "<td>" + data[i].price + "</td>" +
+                                                            "<td>" + data[i].Foodtype + "</td>" +
+                                                            "<td>" + "<img src=" + data[i].Itemimage + " width='70' height='70'/>" + "</td>"
+                                                        "</tr>";
+                                                        tdata.append(trow);
+                                                    }
+
+                                                },
+                                                error: function (res) {
+                                                    alert('Something Went Wrong');
+                                                    console.log(res);
+                                                }
+
+                                            });
+
+       }
+
+
+       function loadAllName1() {
+
+           $.ajax({
+               type: 'GET',
+               url: '/Admin/GetAllName',
+               dataType: 'JSON',
+               contentType: "application/json; charset=utf-8",
+               success: function (data) {
+
+                   console.log(data);
+                   var toptions = $("#s5");
+                   var option = "<option value='Select Name'>Select Name </option>";
+                   for (var i = 0; i < data.length; i++) {
+                       option += "<option value='" +
+                           data[i] +
+                           "'>" + data[i] + "</option>";
+                   }
+                   toptions.append(option);
+               },
+               error: function (err) {
+                   console.log('Something Wrong !!!!');
+               }
+
+           });
+
+       }
+                                    </script>
+</head>
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<body style="background-image: url('../../Images/sn.jpg');background-size:cover">
+    <div style="margin-left: 500px; margin-top: 30px;margin-right: 100px;">
+
+    </div>
+    <div style="margin-left: 400px;margin-top: 50px;margin-right: 50px;width:600px; border: 1px solid black">
+        <tr>
+            <td>
+                Select Restaurant:
+
+            </td>
+            <td>
+                <select id="s5" onchange="loadAllitems()" name="Rname">
+                    <option>   </option>
+                </select>
+            </td>
+        </tr>
+        <table id="tblMenu" class="table table-bordered">
+            <thead class="bg-primary text-white">
+
+                <tr>
+                    <th>Food Item:</th>
+                    <th>Food Type:</th>
+                    <th>Price</th>
+                    <th>Image</th>
+
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+    <div style="margin-left: 400px;margin-top: 50px;margin-right: 50px;width:600px; border: 1px solid black">
+        @using (Html.BeginForm("AddMenu2", "Admin", FormMethod.Post,
+                                                 new { enctype = "multipart/form-data" }))
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th colspan="2">Add New Menu Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    <tr>
+                        <td>
+                            select Name:
+                        </td>
+                        <td>
+                            <select id="s1" name="Rname" onchange="load()">
+                            </select>
+
+                            &nbsp;&nbsp;&nbsp;
+                            <input id="txtn" type="text" readonly="readonly" name="type" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Enter itemname</td>
+                        <td>
+                            <input id="txtRoll" type="text" name="Itemsname" />
+                        </td>
+
+
+                    </tr>
+
+                    <tr>
+                        <td> Enter  Price</td>
+                        <td>
+                            <input id="txtName" type="number" name="price" />
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            select Type:
+                        </td>
+                        <td>
+                            <select id="type" name="Foodtype">
+                                <option value="Veg">
+                                    Veg
+                                </option>
+                                <option value="Nonveg">
+                                    Nonveg
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Select Image:</td>
+                        <td>
+                            <input id="File1" name="pfile1" type="file" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input id="btnAdd" type="submit" onclick="addNewStud()"
+                                   value="Add Item" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#File1").change(function () {
+                var File = this.files;
+                if (File && File[0]) {
+                    ReadImage(File[0]);
+                }
+            })
+        })
+        var ReadImage = function (file) {
+            var reader = new FileReader;
+            var image = new Image;
+            reader.readAsDataURL(file);
+            reader.onload = function (_file) {
+                image.src = _file.target.result;
+                image.onload = function () {
+                    var height = this.height;
+                    var width = this.width;
+                    var type = file.type;
+                    var size = ~~(file.size / 1024) + "KB";
+                    $("#targetImg").attr('src', _file.target.result);
+                    $("#description").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                    $("#imagepreview").show();
+                }
+            }
+        }
+    </script>
+</body>
+<div>
+    <script>
+        loadAllRoll();
+        loadAllName1();
+    </script>
+</div>

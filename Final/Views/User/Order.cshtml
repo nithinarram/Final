@@ -1,0 +1,160 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/User.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function getRests() {
+            $.ajax({
+                type: 'GET',
+                url: '/User/GetRests2',
+                //data: { city: $("#H1").val() },
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    //alert("hii");
+                    var tdata = $("#tblRest tbody");
+                    tdata.empty();
+                    for (var i = 0; i < data.length; i++) {
+                        var trow = "<tr>" +
+                            "<td>" + data[i].Rname + "</td>" +
+                            "<td>" + data[i].bcity + "</td>" +
+                            "<td>" + data[i].Location + "</td>" +
+                            "<td>" + data[i].Category + "</td>" +
+                            //"<td>" + "<img src=" + data[i].Picture + " width='70' height='70'/>" + "</td>"
+                            "<td>" + "<img src=" + data[i].bimage + " width='70' height='70'/>" + "</td>"
+                        "</tr>";
+                        tdata.append(trow);
+                    }
+                },
+                error: function (res) {
+                    alert('Something Went Wrong');
+                    console.log(res);
+                }
+            });
+        }
+    </script>
+    <meta name="viewport" content="width=device-width" />
+    <title>NavBar</title>
+    @*<script src="~/JsLibrary/AdminJs.js"></script>*@
+
+    <script src="~/JsLibrary/UserJs.js"></script>
+    <style>
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Karma", sans-serif;
+            background-color: #808080
+            /* background-color: black*/
+        }
+
+        .w3-bar-block .w3-bar-item {
+            padding: 20px
+        }
+    </style>
+
+</head>
+<body style="background-image: url('../../Images/sk.jpg'); background-size:cover">
+
+   
+
+    <div class="parent">
+       
+
+        <div style="width:600px; margin-left: 600px;margin-top: 10px;margin-right: 50px;border: 1px solid black">
+            <table class="table" id="tblRest">
+                <thead>
+                    <tr>
+                        <th>Restaurant</th>
+                        <th>City</th>
+                        <th>Location</th>
+                        <th>Restaurant Type</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+    <script>
+        getRests();
+    </script>
+    <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f15009;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            //=================================================================
+            //click on table body
+            //$("#tableMain tbody tr").click(function () {
+            $('#tblRest tbody').on('click', 'tr', function () {
+                //get row contents into an array
+                var tableData = $(this).children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                //var td = tableData[0] + '*' + tableData[1];
+                //alert(tableData[1]);
+                var rest = tableData[0];
+                var branch = tableData[2];
+                function menu() {
+                    var dat = {
+                        Rname: rest,
+                        Location: branch
+                    }
+                    $.ajax({
+                        type: 'POST',
+                        url: '/User/Sessions',
+                        data: JSON.stringify(dat),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: 'json',
+                        success: function (data) {
+                            //alert(data.moviename);
+                            // alert(data.multiplexlocation);
+                            //alert(data.showdate);
+
+
+                        },
+                        error: function (res) {
+                            alert('Something Went Wrong');
+                            console.log(res);
+                        }
+
+                    });
+                }
+                menu();
+                window.location.href = 'SelectMenu';
+            });
+        });
+    </script>
+</body>
+</html>

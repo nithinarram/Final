@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FinalCaseModelStoreContainer" CdmEntityContainer="FinalCaseEntities">
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="FinalCaseModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="Usercity" ColumnName="Usercity" />
+          <ScalarProperty Name="Uphonenum" ColumnName="Uphonenum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderedFoods">
+      <EntityTypeMapping TypeName="FinalCaseModel.OrderedFood">
+        <MappingFragment StoreEntitySet="OrderedFood">
+          <ScalarProperty Name="Id1" ColumnName="Id1" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Rname" ColumnName="Rname" />
+          <ScalarProperty Name="Itemname" ColumnName="Itemname" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Restaurants">
+      <EntityTypeMapping TypeName="FinalCaseModel.Restaurant">
+        <MappingFragment StoreEntitySet="Restaurant">
+          <ScalarProperty Name="Rname" ColumnName="Rname" />
+          <ScalarProperty Name="Rimages" ColumnName="Rimages" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="FinalCaseModel.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="Rname" ColumnName="Rname" />
+          <ScalarProperty Name="Foodtype" ColumnName="Foodtype" />
+          <ScalarProperty Name="Itemimage" ColumnName="Itemimage" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="Itemsname" ColumnName="Itemsname" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Branches">
+      <EntityTypeMapping TypeName="FinalCaseModel.Branch">
+        <MappingFragment StoreEntitySet="Branch">
+          <ScalarProperty Name="Rname" ColumnName="Rname" />
+          <ScalarProperty Name="bimage" ColumnName="bimage" />
+          <ScalarProperty Name="bphonenum" ColumnName="bphonenum" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="bcity" ColumnName="bcity" />
+          <ScalarProperty Name="branchid" ColumnName="branchid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carts">
+      <EntityTypeMapping TypeName="FinalCaseModel.Cart">
+        <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="Rname" ColumnName="Rname" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Fooditems" ColumnName="Fooditems" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

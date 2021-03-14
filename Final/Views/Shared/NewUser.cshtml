@@ -1,0 +1,489 @@
+﻿<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <link href="~/CSS/NewUser.css" rel="stylesheet" />
+    <script src="~/Js/NewUser.js"></script>
+</head>
+<body>
+    <div id="nav-bar-overlay">
+        <center>
+            <a href="" id="nav-bar-item-top">CAFÉ PRAGUE</a>
+            <a href="" id="nav-bar-item-drinks">DRINKS</a>
+            <a href="" id="nav-bar-item-menu">MENU</a>
+            <a href="" id="nav-bar-item-contact">ABOUT US &nbsp;&nbsp;&&nbsp;&nbsp; CONTACT</a>
+        </center>
+    </div>
+
+    @*<div id="dialog-overlay"></div>
+    <div id="dialog-box">
+        <div id="dialog-content">
+            <img src="https://cdn1.iconfinder.com/data/icons/jigsoar-icons/64/_close.png" id="close-dialog-menu" />
+
+            <center>
+                <iframe src="https://docs.google.com/forms/d/1H0vHZ_rxBADBDvJ2jvl7-D8kSIYtZu-Go5GLssJLMgs/viewform?embedded=true" id="menu-fillout" width="610" height="780" frameborder="0" marginheight="0" marginwidth="0">Loading</iframe>
+            </center>
+        </div>
+    </div>
+
+    <div id="no-opacity"></div>
+
+    <div id="nav-bar">
+        <h3 id="site-title">CAFÉ PRAGUE</h3>
+        <h3 id="phone-number">(415) 627-7464</h3>
+
+        <div id="sections">
+            <a href="" id="contact-section">CONTACT</a>
+            <a href="" id="menu-section">MENU</a>
+            <a href="" id="drinks-section">DRINKS</a>
+            <a href="" id="location-section">ABOUT US</a>
+        </div>
+
+        <h3 id="classic-czech-cuisine">Classic Czech and California Cuisine</h3>
+        <a href="#" id="reservation-button">MAKE A RESERVATION</a>
+    </div>
+
+    <div id="first-solid-bar">
+        <h2 id="dinner-menu-bar-text">DINNER MENU</h2>
+        <p id="when-available-dinner">Mon-Fri, 4:00pm-7:00pm</p>
+
+        <h2 id="lunch-menu-bar-text">LUNCH MENU</h2>
+        <p id="when-available-lunch">Mon-Fri Noon-7:00pm</p>
+
+        <h2 id="happy-hour-bar-text">HAPPY HOUR</h2>
+        <p id="when-available-happy">Mon-Fri 4:00pm-7:00pm</p>
+
+        <center>
+            <div id="lunch-menu">
+                <div id="menu">
+                    <b id="menu-item-name">Goulash Paprika</b><p id="menu-price">$13</p>
+                    <p id="menu-description">Served with Dumplings / Mashed Potatoes</p>
+                </div>
+
+                <div id="menu">
+                    <b id="menu-item-name">Szeged Goulash</b><p id="menu-price">$14</p><br />
+                    <p id="menu-description">Served with Dumplings / Mashed Potatoes</p>
+                </div>
+
+                <div id="menu">
+                    <b id="menu-item-name">Roast Pork Loin</b><p id="menu-price">$14</p><br />
+                    <p id="menu-description">Served with Red Cabbage and Dumplings</p>
+                </div>
+
+                <div id="menu">
+                    <b id="menu-item-name">Roasted Duck</b><p id="menu-price">$15</p><br />
+                    <p id="menu-description">Served with Red Cabbage and Dumplings</p>
+                </div>
+
+                <div id="menu">
+                    <b id="menu-item-name">Svickova</b><p id="menu-price">$15</p><br />
+                    <p id="menu-description">Served with Dumplings, Cranberries & Beef</p>
+                </div>
+
+                <div id="menu">
+                    <b id="menu-item-name">Bratwurst</b><p id="menu-price">$13</p><br />
+                    <p id="menu-description">Served with Mashed Potatoes and Kraut</p>
+                </div>
+
+                <div id="menu">
+                    <b id="menu-item-name">Grilled Polish Sausage</b><p id="menu-price">$12</p><br />
+                    <p id="menu-description">Served with Sauerkraut, Cornichons & Dijon</p>
+                </div>
+            </div>
+        </center>
+
+        <center>
+            <div id="soups-menu">
+                <h2 id="soups-bar-text">SOUPS</h2>
+                <p id="section-price-info">(Cup $4, Bowl $5)</p>
+
+                <div id="menu">
+                    <b id="menu-item-name">Tomato Soup</b><p id="menu-price">$4/$5</p><br />
+                    <p id="soup-description">Tomato Soup served with Gnocci</p>
+                </div>
+
+                <div id="menu">
+                    <b id="menu-item-name">Split Pea Soup</b><p id="menu-price">$4/$5</p><br />
+                    <p id="soup-description">Served with Bacon and Croutons</p>
+                </div>
+
+                <div id="menu">
+                    <b id="menu-item-name">French Lentil Soup</b><p id="menu-price">$4/$5</p><br />
+                    <p id="soup-description">Lentil Soup served with Vegetables</p>
+                </div>
+            </div>
+        </center>
+
+        <div id="salads-menu">
+            <center>
+                <h2 id="salads-bar-text">SALADS</h2>
+                <p id="section-price-info">(+$2 for Soup / Grilled Chicken)</p>
+            </center>
+
+            <div id="menu">
+                <b id="menu-item-name">Salad Nicoise</b><p id="menu-price">$11</p><br />
+                <p id="salad-description">Runa, Olives, Red Onion, Tomato, Egg, Cucumber, Bell Pepper & Avocado</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Chicken Salad</b><p id="menu-price">$10</p><br />
+                <p id="salad-description">Mesquite grilled Chicken Breast on the beds of Mixed Greens</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Spinach Salad</b><p id="menu-price">$9</p><br />
+                <p id="salad-description">Baby Spinach leaves with Bacon, Tomato, Egg and Blue Cheese</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Caesars Salad</b><p id="menu-price">$9</p><br />
+                <p id="salad-description">Romaine Hearts tossed and topped with Croutons and Parmesan</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Chef Salad</b><p id="menu-price">$9</p><br />
+                <p id="salad-description">Ham, Turkey, Brie, Egg, Tomato, Peppers, Romaine Hearts & Blue Cheese Dressing</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Shrimp Salad</b><p id="menu-price">$11</p><br />
+                <p id="salad-description">Served with Shrimp, Red Onion, Egg, Tomato, Blue Cheese</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Niemann Ranch Steak</b><p id="menu-price">$11</p><br />
+                <p id="salad-description">Salad served with Shrimp, Red Onion, Egg, Tomato, Blue Cheese</p>
+            </div>
+        </div>
+
+        <div id="sandwiches-menu">
+            <center>
+                <h2 id="sandwiches-bar-text">SANDWICHES</h2>
+                <p id="section-price-info">(Sandwiches w/ Soup or Small Salad)</p>
+            </center>
+
+            <div id="menu">
+                <b id="menu-item-name">Prime New York Steak</b><p id="menu-price">$13</p><br />
+                <p id="salad-description">Grilled Onion, Dijon, Tomato on French Baguette & Blue Cheese</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Sun Dried Tomato & Chicken</b><p id="menu-price">$10</p><br />
+                <p id="salad-description">Pesto and Brie Cheese served on Six-Grain Bread</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Mesquite Chicken Breast</b><p id="menu-price">$11</p><br />
+                <p id="salad-description">Pesto and Blue Cheese served on Focaccia Bread</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Prosciutto, Brie & Turkey</b><p id="menu-price">$11</p><br />
+                <p id="salad-description">Romaine Hearts tossed and topped with Croutons and Parmesan</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">A.B.L.T</b><p id="menu-price">$9</p><br />
+                <p id="salad-description">Avocado, Bacon, Lettuce, Tomato on Six Grain Bread</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Tuna Melt on Focaccia</b><p id="menu-price">$11</p><br />
+                <p id="salad-description">Tomato, Red Onion, and Organic Greens with Focaccia</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Provolone Melt</b><p id="menu-price">$10</p><br />
+                <p id="salad-description">Salad served with Shrimp, Red Onion, Egg, Tomato, Blue Cheese</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Grilled Turkey & Provolone</b><p id="menu-price">$10</p><br />
+                <p id="salad-description">French Baguette with Red Onion and Tomato</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Proscuitto di Parma</b><p id="menu-price">$12</p><br />
+                <p id="salad-description">Grilled Baguette, Provolone, Tomato & Mixed Greens</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Egg Salad</b><p id="menu-price">$9</p><br />
+                <p id="salad-description">Toasted Six-Grain, Mayonnaise, Mustard, Tomato & Spinach</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Shrimp Melt</b><p id="menu-price">$11</p><br />
+                <p id="salad-description">Served with either Foccacia or Sourdough Bread</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Grilled Pastrami</b><p id="menu-price">$10</p><br />
+                <p id="salad-description">Served with Swiss Cheese and Kraut and Rye Bread</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Caprese</b><p id="menu-price">$9</p><br />
+                <p id="salad-description">Fresh Mozzarella, Sun Dried Tomato, Pesto, Balsamic, Tomato</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Nova Lox</b><p id="menu-price">$12</p><br />
+                <p id="salad-description">Foccacia or Six Grain with Goat Cheese, Red Onion, Tomato & Capers</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Meatball</b><p id="menu-price">$9</p><br />
+                <p id="salad-description">French Baguette with Marinara, Olives, Peppers and Melted Jack</p>
+            </div>
+
+            <div id="menu">
+                <b id="menu-item-name">Organic California Veggie</b><p id="menu-price">$10</p><br />
+                <p id="salad-description">Toasted and Served on Multi-Grain Bread</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="no-opacity-two">
+        <center>
+            <div id="drinks-beer-menu">
+                <h2 id="beer-bar-text">BEER</h2>
+                <div id="drink">
+                    <b id="menu-item-name">Pilsner Urquell</b><p id="menu-price">$7</p><br />
+                    <p id="drink-description">Beer from Czech Republic</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Staropramen</b><p id="menu-price">$5</p><br />
+                    <p id="drink-description">Beer from Czech Republic</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Spaten Premium Munich</b><p id="menu-price">$7</p><br />
+                    <p id="drink-description">Beer from Germany</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Krusovice Dark</b><p id="menu-price">$7</p><br />
+                    <p id="drink-description">Beer from Czech Republic</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Corona (Bottle)</b><p id="menu-price">$5</p><br />
+                    <p id="drink-description">Beer from Mexico</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Czechvar</b><p id="menu-price">$5</p><br />
+                    <p id="drink-description">Beer from Czech Republic</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Guinness</b><p id="menu-price">$5</p><br />
+                    <p id="drink-description">Beer from Ireland</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Stella Apple Cider</b><p id="menu-price">$5</p><br />
+                    <p id="drink-description">Beer from Belgium</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Blue Moon</b><p id="menu-price">$5</p><br />
+                    <p id="drink-description">Beer from Canada</p>
+                </div>
+            </div>
+
+            <div id="drinks-wine-menu">
+                <h2 id="wine-bar-text">WINE</h2>
+                <div id="drink">
+                    <b id="menu-item-name">Tres Pinos</b><p id="menu-price">$28</p><br />
+                    <p id="drink-description">Wine from San Luis Obispo</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Lindeman's Chardonnay</b><p id="menu-price">$27</p><br />
+                    <p id="drink-description">Wine from Southeast Australia</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Lambrusco Medici</b><p id="menu-price">$27</p><br />
+                    <p id="drink-description">Wine from Italy</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Robert Mondavi (Cab)</b><p id="menu-price">$27</p><br />
+                    <p id="drink-description">Wine from California</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Lambrusco Medici</b><p id="menu-price">$27</p><br />
+                    <p id="drink-description">Wine from Italy</p>
+                </div>
+            </div>
+
+            <div id="drinks-nonalco-menu">
+                <h2 id="nonalco-bar-text">NON-ALCO</h2>
+                <div id="drink">
+                    <b id="menu-item-name">Coca Cola</b><p id="menu-price">$2.50</p><br />
+                    <p id="drink-description">Non-Alchoholic - Carbonated</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Sprite</b><p id="menu-price">$2.50</p><br />
+                    <p id="drink-description">Non-Alchoholic - Carbonated</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Orangina</b><p id="menu-price">$2.75</p><br />
+                    <p id="drink-description">Non-Alcoholic - Carbonated</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Crystal Geyser</b><p id="menu-price">$2.70</p><br />
+                    <p id="drink-description">Non-Alchoholic - Carbonated</p>
+                </div>
+
+
+                <div id="drink">
+                    <b id="menu-item-name">Cranberry Juice</b><p id="menu-price">$3.50</p><br />
+                    <p id="drink-description">Non-Alcoholic</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Orange Juice</b><p id="menu-price">$4</p><br />
+                    <p id="drink-description">Non-Alcoholic</p>
+                </div>
+            </div>
+
+            <div id="drinks-hot-menu">
+                <h2 id="hot-bar-text">HOT DRINKS</h2>
+                <div id="drink">
+                    <b id="menu-item-name">Espresso</b><p id="menu-price">$2.50</p><br />
+                    <p id="drink-description">Non-Alcoholic</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Cappuccino</b><p id="menu-price">$3.50</p><br />
+                    <p id="drink-description">Non-Alcoholic</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Latte</b><p id="menu-price">$3.75</p><br />
+                    <p id="drink-description">Non-Alcoholic</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Almond Latte</b><p id="menu-price">$4</p><br />
+                    <p id="drink-description">Non-Alcoholic</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">White Mocha</b><p id="menu-price">$4</p><br />
+                    <p id="drink-description">Non-Alcoholic</p>
+                </div>
+
+                <div id="drink">
+                    <b id="menu-item-name">Tea</b><p id="menu-price">$3</p><br />
+                    <p id="drink-description">Non-Alcoholic</p>
+                </div>
+            </div>
+        </center>
+    </div>
+
+    <div id="second-solid-bar">
+        <h2 id="location-bar-text">LOCATION & CONTACT</h2>
+
+        <div id="location-menu">
+            <div id="location">
+                <b id="location-name">Address</b>
+                <p id="location-desc">424 Merchant Street</p>
+                <p id="location-desc">San Francisco, CA 94111</p>
+            </div>
+
+            <div id="location">
+                <b id="location-name">Hours</b>
+                <p id="location-desc">• Mon-Fri 11:30AM - 12AM</p>
+                <p id="location-desc">• Saturday 4PM - 12AM</p>
+            </div>
+
+            <div id="location">
+                <b id="location-name">Contacts</b>
+                <p id="location-desc">• Phone  (415) 627-7464</p>
+                <p id="location-desc">• cafeprague@earthlink.net</p>
+            </div>
+
+            <div id="google-map" data-reactid=".0.$SITE_ROOT.$SITE_STRUCTURE.$PAGES_CONTAINER.1.1.$SITE_PAGES.$c14xr.1.$Cntnr7.1.$GglMp2"><div id="google-map-container" data-reactid=".0.$SITE_ROOT.$SITE_STRUCTURE.$PAGES_CONTAINER.1.1.$SITE_PAGES.$c14xr.1.$Cntnr7.1.$GglMp2.0"><iframe src="http://static.parastorage.com/services/santa/1.428.10//static/external/googleMap.html?address=424%20Merchant%20St.%2C%20San%20Francisco%2C%20CA%2094111&amp;addressInfo=Cafe%20Prague%20in%20San%20Francisco&amp;mapType=ROADMAP&amp;mapInteractive&amp;showZoom&amp;showPosition&amp;showStreetView&amp;showMapType&amp;lat=37.7955365&amp;long=-122.40100210000003" width="100%" height="100%" frameborder="0" data-reactid=".0.$SITE_ROOT.$SITE_STRUCTURE.$PAGES_CONTAINER.1.1.$SITE_PAGES.$c14xr.1.$Cntnr7.1.$GglMp2.0.0"></iframe></div></div>
+        </div>
+
+        <div id="about-us-section">
+            <h2 id="about-us">ABOUT US</h2>
+            <p id="info-about-us">
+                Café Prague brings you a European twist to your favorite Californian dishes.
+                Our specialities include Goulash paprika with dumplings, Roast Duck with red cabbage and dumplings, as well as a rich variety of organic mixed greens, including salad Nicoise, and Caeser salad.
+                <br />
+                <br />
+                We strive to deliver upmost quality to our clients, so we are very conscious of where we get our ingredients from. We work with only the best suppliers, including but not limited to Clover stornetta, Acme, Semifredi, Alvarado rd. & Liguria Bakery, Niemann Ranch, & Rainbow Groceries.
+            </p>
+        </div>
+
+        <div id="image-gallery">
+            <div id="img-wrapper">
+                <img src="https://i.imgur.com/2L1fXO2.png" id="main-image" />
+            </div>
+            <br />
+            <div id="img-wrapper">
+                <img src="https://i.imgur.com/EyrqNi1.png" id="main-image" />
+            </div>
+            <br />
+            <div id="img-wrapper">
+                <img src="https://i.imgur.com/Fmh2AXR.png" id="main-image" />
+            </div>
+            <br />
+            <div id="img-wrapper">
+                <img src="https://i.imgur.com/PMKlcwi.png" id="main-image" />
+            </div>
+            <br />
+            <div id="img-wrapper">
+                <img src="https://i.imgur.com/Y432pvF.jpg" id="main-image" />
+            </div>
+            <br />
+            <div id="img-wrapper">
+                <img src="https://i.imgur.com/YI3Tpkw.png" id="main-image" />
+            </div>
+            <br />
+            <div id="img-wrapper">
+                <img src="https://i.imgur.com/P7zRgVr.png" id="main-image" />
+            </div>
+            <br />
+            <div id="img-wrapper">
+                <img src="https://i.imgur.com/Lz3wbQy.png" id="main-image" />
+            </div>
+            <br />
+            <div id="img-wrapper">
+                <img src="https://i.imgur.com/1pUJCz6.png" id="main-image" />
+            </div>
+            <br />
+            <div id="img-wrapper">
+                <img src="https://i.imgur.com/32MBVDy.png" id="main-image" />
+            </div>
+        </div>
+
+        <div id="footer">
+            <a href="https://twitter.com/cafepraguesf" target='_blank'><img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-twitter-128.png" id="social-icon" /></a>
+            <a href="https://www.facebook.com/pages/Cafe-Prague-of-San-Francisco/128561160528375?ref_type=bookmark" target='_blank'><img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-facebook_-128.png" id="social-icon" /></a>
+            <a href="https://www.yelp.com/biz/cafe-prague-san-francisco-2" target='_blank'><img src="https://cdn4.iconfinder.com/data/icons/miu-flat-social/60/yelp-128.png" id="social-icon" /></a>
+
+            <p id="copyright-info">Copyright © 2015, Cafe Prague in San Francisco</p>
+        </div>
+    </div>*@
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+﻿@model Final.Models.UserLoginModel
+@{
+    ViewBag.Title = "User";
+}
+
+<h2>User</h2>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function city() {
+            $.ajax({
+                type: 'GET',
+                url: '/UserLogin/City2',
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                success: function (data) {
+                    var options = '';
+                    options = '<option value=Select City> Select City</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        options += '<option value="' + data[i] + '">' +
+                            data[i] + '</option>';
+
+                    }
+                    $("#S1").empty();
+                    $("#S1").append(options);
+                },
+                error: function (res) {
+                    alert('Something Went Wrong');
+                    console.log(res);
+                }
+
+            });
+        }
+
+        function signup() {
+            //var dat = {
+            //    Userid: $("#userid").val(),
+            //    Password: $("#userpass").val()
+            //}
+            //$.ajax({
+            //    type: 'POST',
+            //    url: '/UserLogin/Signup2',
+            //    data: JSON.stringify(dat),
+            //    contentType: "application/json; charset=utf-8",
+            //    dataType: 'json',
+            //    success: function (data) {
+            //        alert('Signed Up Successfully');
+            //        console.log(data);
+            //        var url = '/UserLogin/user/';
+            //        window.location = url;
+            //    },
+            //    error: function (res) {
+            //        alert('Something Went Wrong');
+            //        console.log(res);
+            //    }
+
+            //});
+            window.location.href = 'Signup1';
+        }
+
+    </script>
+    <meta charset="utf-8">
+    <title>َAnimated Login Form</title>
+    <link rel="stylesheet" href="~/CSS/UserLogin.css">
+    <style>
+       /* ::placeholder {
+            color: white;
+            opacity: 1;
+        }*/
+
+        /*:-ms-input-placeholder {*/ /* Internet Explorer 10-11 */
+        /*color: red;
+        }*/
+
+        /*::-ms-input-placeholder {*/ /* Microsoft Edge */
+        /*color: red;
+        }*/
+    </style>
+    @*<script src="~/JsLibrary/AdminJs.js"></script>*@
+    <script src="~/JsLibrary/UserJs.js"></script>
+    @*<script>alert(@Html.Raw(ViewBag.Message));</script>*@
+
+</head>
+<body>
+    <center>
+        <div style="color:red">@Html.Raw(ViewBag.Message)</div>
+    </center>
+    @*<div>@ViewBag.Message</div>*@
+    <div>
+
+        <form class="box" action="@Url.Action("ValidateUser", "UserLogin")" method="post">
+            <h1>Login</h1>
+            <input id="userid" required="required" type="text" name="UserId" placeholder="Username">
+
+            <input id="userpass" required="required" type="password" name="Password" placeholder="Password">
+            <div>
+                <select id="S1" name="usercity">
+                    <option> </option>
+                </select>
+            </div>
+            <div style="margin-left:30px">
+                <table>
+                    <tr>
+                        <td><input type="submit" name="" value="Login"></td>
+                        <td><input type="button" name="" value="SignUp" onclick="signup()"></td>
+                    </tr>
+                </table>
+            </div>
+
+        </form>
+
+    </div>
+    <center>
+        <div style="color:white;margin-top:400px">
+            <h1>Note1:New User? Please SignUp</h1>
+            <h2>Note2:Please Select The City Before Logging In</h2>
+        </div>
+    </center>
+
+    <script>
+        city();
+    </script>
+</body>
+</html>
+

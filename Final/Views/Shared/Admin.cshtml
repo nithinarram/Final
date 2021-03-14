@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="~/CSS/Nav2.css" rel="stylesheet">
+</head>
+<body>
+    <div class="custom-padding">
+        <header>
+            <nav>
+                <div class="logo">
+                    FoodHunterzz
+                </div>
+                <ul class="menu-area">
+                    <li>
+                        <a href="@Url.Action("Home", "Admin")">Home</a>
+                    </li>
+                    <li>
+                       
+                    </li>
+                    @*<li>
+            <a href="@Url.Action("EditRest", "Admin")">Edit Restaurants</a>
+        </li>*@
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Manage Restaurants
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="@Url.Action("AddRest", "Admin")">Add Restaurants</a>
+                            <a href="@Url.Action("AddBranch", "Admin")">Add Branches</a>
+
+                            @*<a class="dropdown-item" href="@Url.Action("Display", "Admin")">Display Restaurants</a>*@
+                        </div>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="@Url.Action("EditRest", "Admin")">Edit Restaurants</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("AddMenu", "Admin")">Add Menu </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="@Url.Action("EditMenu", "Admin")">Edit Menu</a>
+                    </li>                
+    @*<li>
+            <a href="@Url.Action("Display", "Admin")">Display Restaurants</a>
+        </li>
+        <li>
+            <a href="@Url.Action("DisplayMenu", "Admin")">Display Menu</a>
+        </li>*@
+                    @*<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Display
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="@Url.Action("Display", "Admin")">Display Restaurants</a>
+                <a class="dropdown-item" href="@Url.Action("DisplayMenu", "Admin")">Diaplay Menu</a>
+            </div>
+        </li>*@
+                    @*<li>
+            <a href="@Url.Action("Display", "Admin")">Display Restaurants</a>
+        </li>*@
+                    <li>
+                        <a href="@Url.Action("Index", "Login")">LogOut</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

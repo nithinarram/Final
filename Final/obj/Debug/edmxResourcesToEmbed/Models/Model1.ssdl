@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinalCaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="branchid" />
+    </Key>
+    <Property Name="branchid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bcity" Type="varchar" MaxLength="50" />
+    <Property Name="Location" Type="varchar" MaxLength="50" />
+    <Property Name="bphonenum" Type="bigint" />
+    <Property Name="bimage" Type="image" />
+    <Property Name="Rname" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fooditems" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Rname" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Userid" />
+    </Key>
+    <Property Name="Userid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="Usercity" Type="varchar" MaxLength="50" />
+    <Property Name="Uphonenum" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Itemsname" Type="varchar" MaxLength="50" />
+    <Property Name="price" Type="int" />
+    <Property Name="Itemimage" Type="image" />
+    <Property Name="Foodtype" Type="varchar" MaxLength="50" />
+    <Property Name="Rname" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OrderedFood">
+    <Key>
+      <PropertyRef Name="Id1" />
+    </Key>
+    <Property Name="Id1" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quantity" Type="varchar" MaxLength="50" />
+    <Property Name="Rname" Type="varchar" MaxLength="50" />
+    <Property Name="Itemname" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="int" />
+    <Property Name="Userid" Type="varchar" MaxLength="50" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Restaurant">
+    <Key>
+      <PropertyRef Name="Rname" />
+    </Key>
+    <Property Name="Rname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rimages" Type="image" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__Branch__Rname__37A5467C">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="0..1" />
+    <End Role="Branch" Type="Self.Branch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="Rname" />
+      </Principal>
+      <Dependent Role="Branch">
+        <PropertyRef Name="Rname" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cart__Rname__49C3F6B7">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="0..1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="Rname" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="Rname" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Menu__Rname__34C8D9D1">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="0..1" />
+    <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="Rname" />
+      </Principal>
+      <Dependent Role="Menu">
+        <PropertyRef Name="Rname" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderedFo__Rname__300424B4">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="0..1" />
+    <End Role="OrderedFood" Type="Self.OrderedFood" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="Rname" />
+      </Principal>
+      <Dependent Role="OrderedFood">
+        <PropertyRef Name="Rname" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderedFo__Useri__30F848ED">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="OrderedFood" Type="Self.OrderedFood" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Userid" />
+      </Principal>
+      <Dependent Role="OrderedFood">
+        <PropertyRef Name="Userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FinalCaseModelStoreContainer">
+    <EntitySet Name="Branch" EntityType="Self.Branch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderedFood" EntityType="Self.OrderedFood" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Restaurant" EntityType="Self.Restaurant" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Branch__Rname__37A5467C" Association="Self.FK__Branch__Rname__37A5467C">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="Branch" EntitySet="Branch" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cart__Rname__49C3F6B7" Association="Self.FK__Cart__Rname__49C3F6B7">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Menu__Rname__34C8D9D1" Association="Self.FK__Menu__Rname__34C8D9D1">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="Menu" EntitySet="Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderedFo__Rname__300424B4" Association="Self.FK__OrderedFo__Rname__300424B4">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="OrderedFood" EntitySet="OrderedFood" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderedFo__Useri__30F848ED" Association="Self.FK__OrderedFo__Useri__30F848ED">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="OrderedFood" EntitySet="OrderedFood" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

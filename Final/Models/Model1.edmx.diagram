@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c189046816dc46ac86c671c8633af33f" Name="Diagram1">
+        <EntityTypeShape EntityType="FinalCaseModel.Customer" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCaseModel.OrderedFood" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCaseModel.Restaurant" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="FinalCaseModel.FK__OrderedFo__Useri__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCaseModel.FK__OrderedFo__Rname__300424B4" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FinalCaseModel.Menu" Width="1.5" PointX="3" PointY="7.75" />
+        <AssociationConnector Association="FinalCaseModel.FK__Menu__Rname__34C8D9D1" />
+        <EntityTypeShape EntityType="FinalCaseModel.Branch" Width="1.5" PointX="3" PointY="3.75" />
+        <AssociationConnector Association="FinalCaseModel.FK__Branch__Rname__37A5467C" />
+        <EntityTypeShape EntityType="FinalCaseModel.Cart" Width="1.5" PointX="3" PointY="11" />
+        <AssociationConnector Association="FinalCaseModel.FK__Cart__Rname__49C3F6B7" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
